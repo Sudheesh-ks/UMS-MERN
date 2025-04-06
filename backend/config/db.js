@@ -1,8 +1,10 @@
 import mongoose from "mongoose";
+import dotenv from 'dotenv'
+dotenv.config()
 
 export const connectDB=async()=>{
     try{
-        const conn=await mongoose.connect("mongodb://127.0.0.1:27017/Mern_User_Auth")
+        const conn=await mongoose.connect(MONGO_URI)
         console.log(`Database Connected at ${conn.connection.host}`)
     }catch(err){
         console.log(err)
